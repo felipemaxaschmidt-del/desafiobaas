@@ -82,6 +82,7 @@ if (!token) {
   return NextResponse.redirect(new URL("/login", request.url));
 }
 ```
+<img width="647" height="205" alt="image" src="https://github.com/user-attachments/assets/b0b07011-860f-4476-97f8-6efa3827f86f" />
 
 ---
 
