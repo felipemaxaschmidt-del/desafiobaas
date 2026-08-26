@@ -21,6 +21,7 @@ O objetivo deste relatório é estruturar individualmente cada falha encontrada 
 * **Conceito ensinado:** Tratamento de erros com `try/catch`, tratamento de exceções do Firebase Auth e feedback de interface (UX).
 
 
+<img width="447" height="129" alt="image" src="https://github.com/user-attachments/assets/82dd072f-a54c-4e35-a09f-0d8fdff3ca0b" />
 
 
 
@@ -59,6 +60,9 @@ O bloco `catch` foi atualizado para receber o parâmetro de erro (`err`), verifi
 
 ### BUG 02 — Middleware com Condição Invertida
 
+<img width="558" height="132" alt="image" src="https://github.com/user-attachments/assets/ea02eb21-db30-4f43-9d84-b8c5a2f9d72a" />
+
+
 * **Arquivo:** `middleware.ts`
 * **Linha aproximada:** ~28
 * **Conceito ensinado:** Next.js Middleware, proteção de rotas e operador lógico de negação (`!`).
@@ -88,6 +92,9 @@ if (!token) {
 
 ### BUG 03 — Confirmação de Senha Compara com Nome
 
+<img width="463" height="106" alt="image" src="https://github.com/user-attachments/assets/f4b2e19f-c7c9-4f02-83e6-bbf9d82812fa" />
+
+
 * **Arquivo:** `src/app/(auth)/cadastro/page.tsx`
 * **Linha aproximada:** ~30
 * **Conceito ensinado:** Validação de formulários no cliente e atenção à nomeação e comparação de variáveis.
@@ -112,6 +119,9 @@ if (senha !== confirmarSenha) {
 ---
 
 ### BUG 04 — Query Sem Filtro de userId
+
+<img width="485" height="110" alt="image" src="https://github.com/user-attachments/assets/91645393-13c8-4e7f-b587-697354a49b3c" />
+
 
 * **Arquivo:** `src/services/personagens.ts`
 * **Linha aproximada:** ~29
@@ -143,6 +153,9 @@ const q = query(
 
 ### BUG 05 — Nome de Coleção Errado no Create
 
+<img width="599" height="127" alt="image" src="https://github.com/user-attachments/assets/c96d407f-cf0e-4598-9826-f0878f10f042" />
+
+
 * **Arquivo:** `src/services/personagens.ts`
 * **Linha aproximada:** ~52
 * **Conceito ensinado:** Nomes de coleções no Firestore e padronização/consistência de nomenclatura.
@@ -170,6 +183,10 @@ const ref = await addDoc(collection(db, "personagens"), { ... });
 
 ### BUG 06 — setDoc Apaga o Documento Inteiro
 
+<img width="676" height="113" alt="image" src="https://github.com/user-attachments/assets/b7a58509-cac9-45ba-81e3-08f827285f7b" />
+
+
+
 * **Arquivo:** `src/services/personagens.ts`
 * **Linha aproximada:** ~82
 * **Conceito ensinado:** Operações de escrita no Firestore: diferença entre `setDoc` (substituição total) e `updateDoc` (atualização parcial).
@@ -194,6 +211,9 @@ await updateDoc(doc(db, "personagens", personagemId), { [slot]: itemId });
 ---
 
 ### BUG 07 — Deletar Usa Índice Como ID
+
+<img width="604" height="126" alt="image" src="https://github.com/user-attachments/assets/c2447ce6-21e0-40f4-b6c8-8cb43e42e90b" />
+
 
 * **Arquivo:** `src/services/personagens.ts`
 * **Linha aproximada:** ~100
@@ -220,6 +240,9 @@ await deleteDoc(doc(db, "personagens", personagem.id));
 ---
 
 ### BUG 08 — Security Rules Abertas
+
+<img width="293" height="145" alt="image" src="https://github.com/user-attachments/assets/776f5ab1-5d6f-4059-836d-9f75be7c94bc" />
+
 
 * **Arquivo:** `firestore.rules`
 * **Conceito ensinado:** Firebase Security Rules, autenticação vs. autorização e validação de contexto via `resource.data` e `request.resource.data`.
