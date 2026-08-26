@@ -29,7 +29,8 @@ export default function LoginPage() {
     try {
       await entrar(email, senha);
       router.push("/dashboard");
-  } catch (err) {
+  
+    } catch (err) {
   const msg = err instanceof Error ? err.message : "Erro desconhecido";
   if (msg.includes("invalid-credential") || msg.includes("wrong-password")) {
     setErro("E-mail ou senha incorretos.");
