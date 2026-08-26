@@ -1,5 +1,7 @@
 # 📋 Relatório Técnico de Análise e Resolução de Bugs — Nexus dos Heróis
 
+##Desenvolvimento de Sistemas 301
+##Felipe Maximiliano Alves Schmidt Nathália Luiza Eble
 ## 📖 Resumo Executivo
 
 Este relatório apresenta a documentação detalhada da análise, causa-raiz e resolução técnica dos **8 bugs** mapeados no projeto **Nexus dos Heróis**. O projeto consiste em uma aplicação web desenvolvida em **Next.js** integrada ao **Firebase (Authentication e Firestore)**.
