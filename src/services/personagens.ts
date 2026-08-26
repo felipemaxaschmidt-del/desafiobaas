@@ -13,7 +13,9 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "@/firebase/config";
+import { where } from "firebase/firestore";
 import type { Classe, Personagem } from "@/types";
+
 
 // ---------------------------------------------------------------------------
 // LISTAR — BUG 04 🐛
@@ -28,14 +30,15 @@ import type { Classe, Personagem } from "@/types";
 // CORREÇÃO: adicione um filtro com where('userId', '==', uid) para que
 // cada usuário veja apenas os seus próprios personagens.
 // ---------------------------------------------------------------------------
+
 export async function listarPersonagens(_uid: string): Promise<Personagem[]> {
-  // 🐛 BUG 04 — query sem filtro de userId
-  const q = query(collection(db, "personagens"));
-
+  const q = query(
+    collection(db, "personagens"),
+    where("userId", "==", _uid)
+  );
   const snap = await getDocs(q);
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Personagem));
+  return snap.docs.map((item) => ({ id: item.id, ...item.data() }) as Personagem);
 }
-
 // ---------------------------------------------------------------------------
 // CRIAR — BUG 05 🐛
 // ---------------------------------------------------------------------------
@@ -54,7 +57,7 @@ export async function criarPersonagem(
   classe: Classe
 ): Promise<string> {
   // 🐛 BUG 05 — nome de coleção errado: "personagem" ao invés de "personagens"
-  const ref = await addDoc(collection(db, "personagem"), {
+  const ref = await addDoc(collection(db, "personagens"), {
     nome,
     classe,
     nivel: 1,
@@ -94,7 +97,7 @@ export async function equiparItem(
   itemId: string
 ): Promise<void> {
   // 🐛 BUG 06 — setDoc apaga o documento inteiro ao invés de atualizar só o campo
-  await setDoc(doc(db, "personagens", personagemId), { [slot]: itemId });
+  await updateDoc(doc(db, "personagens", personagemId), { [slot]: itemId });
 }
 
 // ---------------------------------------------------------------------------
@@ -114,7 +117,7 @@ export async function deletarPersonagem(
   indice: number
 ): Promise<void> {
   // 🐛 BUG 07 — usa o índice da lista (0, 1, 2) como ID do documento
-  await deleteDoc(doc(db, "personagens", String(indice)));
+  await deleteDoc(doc(db, "personagens", personagem.id));
 }
 
 // ---------------------------------------------------------------------------
