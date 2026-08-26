@@ -21,7 +21,7 @@ O objetivo deste relatório é estruturar individualmente cada falha encontrada 
 * **Conceito ensinado:** Tratamento de erros com `try/catch`, tratamento de exceções do Firebase Auth e feedback de interface (UX).
 
 
-<img width="722" height="232" alt="image" src="https://github.com/user-attachments/assets/e356354d-74ce-4c3c-86de-19fcb6322f50" />
+
 
 
 
@@ -54,7 +54,7 @@ O bloco `catch` foi atualizado para receber o parâmetro de erro (`err`), verifi
   }
 }
 ```
-
+<img width="722" height="232" alt="image" src="https://github.com/user-attachments/assets/e356354d-74ce-4c3c-86de-19fcb6322f50" />
 ---
 
 ### BUG 02 — Middleware com Condição Invertida
