@@ -107,6 +107,7 @@ if (senha !== nome) {  // ← variável errada!
 ```ts
 if (senha !== confirmarSenha) {
 ```
+<img width="631" height="135" alt="image" src="https://github.com/user-attachments/assets/bee70b66-6f43-447a-af15-1a2b54b552b3" />
 
 ---
 
@@ -136,6 +137,7 @@ const q = query(
   where("userId", "==", uid)
 );
 ```
+<img width="701" height="166" alt="image" src="https://github.com/user-attachments/assets/adeeb691-9c16-451d-8e34-01083c78104e" />
 
 ---
 
@@ -162,6 +164,7 @@ const ref = await addDoc(collection(db, "personagem"), { ... });
 const ref = await addDoc(collection(db, "personagens"), { ... });
 //                                       ↑ plural — correto
 ```
+<img width="698" height="237" alt="image" src="https://github.com/user-attachments/assets/86098dc2-ee36-4f98-a59e-36c6e2511cc3" />
 
 ---
 
@@ -186,6 +189,7 @@ await setDoc(doc(db, "personagens", personagemId), { [slot]: itemId });
 ```ts
 await updateDoc(doc(db, "personagens", personagemId), { [slot]: itemId });
 ```
+<img width="717" height="87" alt="image" src="https://github.com/user-attachments/assets/6f79149a-084c-433a-a7f5-7bda1b7ee15b" />
 
 ---
 
@@ -211,6 +215,7 @@ await deleteDoc(doc(db, "personagens", String(indice)));
 ```ts
 await deleteDoc(doc(db, "personagens", personagem.id));
 ```
+<img width="613" height="84" alt="image" src="https://github.com/user-attachments/assets/6b118bd3-9e3d-4a0d-9cee-ad25660c27be" />
 
 ---
 
@@ -245,5 +250,6 @@ match /personagens/{personagemId} {
                         request.auth.uid == resource.data.userId;
 }
 ```
+<img width="739" height="237" alt="image" src="https://github.com/user-attachments/assets/baf77ed8-bb82-44f0-9093-1f55250b2003" />
 
 ---
